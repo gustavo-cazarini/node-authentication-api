@@ -9,8 +9,8 @@ router.get('/api/administrator', verifyJWT, Administrator.getAll);
 router.post('/api/login', Administrator.login);
 
 router.get('/api/client', Client.getAll);
-router.post('/api/client', Client.postClient);
-router.put('/api/client/:id', Client.putClient);
-router.delete('/api/client/:id', Client.deleteClient);
+router.post('/api/client', verifyJWT, Client.postClient);
+router.put('/api/client/:id', verifyJWT, Client.putClient);
+router.delete('/api/client/:id', verifyJWT, Client.deleteClient);
 
 module.exports = router;
